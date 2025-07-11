@@ -1,0 +1,37 @@
+.movie
+{
+    color: aliceblue;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+.movieDesc
+{
+    margin-left: 20px;
+    color: aliceblue;
+}
+.movieImg
+{
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 20%;
+}
+.poster
+{
+    width: 100%;
+    border-radius: 10px;
+}
+h3{
+    color: rgb(9, 141, 84);
+}
+
+.movieCard
+{
+    display: flex;
+    flex-direction: row;
+}
