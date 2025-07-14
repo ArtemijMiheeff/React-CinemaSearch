@@ -5,12 +5,13 @@
     align-items: center;
     width: 100%;
     height: 3rem;
-    background-color: rgb(9, 141, 84);
+    background-color: rgb(3, 12, 50);
     margin-bottom: 50px;
+    color: aliceblue;
     /* padding-left: 1cm; */
 }
 
-/* .header:hover
+.header p:hover
 {
-    background-color: rgb(88, 176, 138);
-} */
+    color: rgb(88, 176, 138);
+}

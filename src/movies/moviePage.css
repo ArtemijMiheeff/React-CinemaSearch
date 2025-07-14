@@ -1,0 +1,84 @@
+h1{
+    color: aliceblue;
+}
+.moviepage
+{
+    /* background-color: rgb(55, 35, 35); */
+    background-image: url('../assets/back.png');
+    background-size: cover;
+    background-repeat: repeat;
+    width: auto;
+    height: 65vh;
+}
+
+.desc_and_logo
+{
+    display: flex;
+    justify-content: end;
+    position: relative;
+    top: 40%;
+    border: 1px solid transparent;
+    height: 45%;
+    width: auto;
+}
+.posterLogo
+{
+    margin-right: 40px;
+    float: right;
+    height: 100%;
+    width: auto;
+}
+.descrptn
+{
+    display: block;
+    border: 1px solid transparent;
+    height: 50%;
+    margin-top: 5%;
+    width: auto;
+    /* color: rgb(41, 43, 46); */
+}
+.descTitle
+{
+    display: flex;
+    justify-content: end;
+    margin-right: 15%;
+    color:aliceblue;
+    font-size: x-large;
+    font-weight: bold;
+}
+.descData
+{
+    margin-right: 15%;
+    /* color: rgba(69, 85, 108, 1); */
+    color: white;
+}
+
+.button1
+{
+    background-color: rgba(25, 60, 184, 1);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 16px;
+}
+.button2
+{
+
+    background-color:rgba(190, 219, 255, 1);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 16px;
+}
+.button3
+{
+    background-color:rgba(190, 219, 255, 1);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 16px;
+}
+.buttons
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    border: 1px solid transparent;
+}

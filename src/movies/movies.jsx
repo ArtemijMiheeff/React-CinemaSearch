@@ -2,42 +2,33 @@ import React from "react";
 import './movies.css'
 import Movie from './movie.jsx';
 import axios from 'axios';
-import LoadMovies from "./loadMovies.jsx";
 
 class Movies extends React.Component
 {
     constructor(props)
     {
         super(props)
+        var movies=[];
+        const baseUrl = 'https://api.kinopoisk.dev/';
+        const endpoint = 'v1.4/movie?page=1&limit=102&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=description&selectFields=slogan&selectFields=year&selectFields=rating&selectFields=movieLength&selectFields=genres&selectFields=countries&selectFields=poster&selectFields=backdrop&selectFields=logo';
+        // const apiKey = 'K2RKCRW-XSD4Q1A-PCH0J54-W8G1CJM';
+        const apiKey = '5ZCCR76-7W64YJD-N52N4RM-EPE3V0B';
 
-        const baseUrl = 'https://movie-api38.p.rapidapi.com/movie/';
-        const apiKey = '02b95ecb4bmsh7f31cfbbef4a610p10c7a5jsn30d2253d1fcf';
-        const apiPart = '?rapidapi-key=';
-        //https://movie-api38.p.rapidapi.com/movie?rapidapi-key=02b95ecb4bmsh7f31cfbbef4a610p10c7a5jsn30d2253d1fcf
-        // const urlWithKey = {
-        //     method: 'GET',
-        //     url: 'https://movie-api38.p.rapidapi.com/movie',
-        //     headers: {
-        //         'x-rapidapi-key': '02b95ecb4bmsh7f31cfbbef4a610p10c7a5jsn30d2253d1fcf',
-        //         'x-rapidapi-host': 'movie-api38.p.rapidapi.com'
-        //     }
-        // };
-        const urlWithKey = baseUrl + apiPart + apiKey;
+        const urlWithKey = baseUrl + endpoint;
         this.state = {
             movies: [] 
         }
         try{
 
-            axios.get(urlWithKey).then((response) => {
-                this.setState({movies: response.data.data});
-                console.log(response.data.data)
-            })
+            axios.get(urlWithKey, {headers: {'X-API-KEY': apiKey, 'content-type': 'application/json'}})
+            .then((response) => this.setState({movies: response.data.docs}));
+            //this.setState({movies: response.data.docs})); 
+            //console.log(response.data.docs)));
         }
-        catch (e)
+        catch (error)
         {
-            console.log('error');
+            console.log('error', error);
         }
-
     }
  
     render()
@@ -45,12 +36,11 @@ class Movies extends React.Component
         if (this.state.movies.length>0)
         {
         return(
-        <div>
-            {this.state.movies.map((elem) => (
+        <div className="movie-list">
+                {this.state.movies.map((elem) => (
                 <Movie key={elem.id} movie={elem}/>
             )
             )}
-            <LoadMovies />
         </div>
         )
         }

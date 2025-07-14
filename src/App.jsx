@@ -4,14 +4,11 @@ import Header from './header/header.jsx';
 import Movies from './movies/movies.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <div>
-      <Header title="CinemaSearch"/>
-    <main>
-    <Movies />
-    </main>
+      <Movies />
     </div>
   )
 }
