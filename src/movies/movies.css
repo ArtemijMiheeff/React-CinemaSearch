@@ -56,3 +56,18 @@
     display: block;
     margin-left: 5%;
 }
+
+.linkNoDecor{
+    text-decoration: none;
+}
+.movieLoading
+{
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 100%;
+    color: aliceblue;
+}
+.movieLoading h3
+{
+   margin-left: 3rem;
+}

@@ -47,8 +47,8 @@ class Movies extends React.Component
         else
         {
             return(
-            <div className="movie">
-                <h3>There is empty -_-</h3>
+            <div className="movieLoading">
+                <h3>Loading ...</h3>
             </div>
             )
         }

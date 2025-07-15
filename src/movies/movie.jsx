@@ -1,24 +1,22 @@
 import React from "react";
-import './movies.css'
+import './movies.css';
 import png from '../assets/noposter.png';
+import { Link } from "react-router-dom";
 
-class Movie extends React.Component
-{
-    movie = this.props.movie;
-    render()
-    {
-        // console.log(this.movie.poster?.url == null ? 'null' : this.movie.poster.url);
-        return(
-            <div className="movie-item">
-                <div className="movieImg">
-                    <img src={this.movie.poster?.url == null ? png : this.movie.poster.url} className="poster"/>
-                </div>
-                <div>
-                    <p className="movieTitle">{this.movie.name == null ? this.movie.alternativeName : this.movie.name}</p> 
-                    <p className="yearAndLength">{this.movie.year == null ? '' : this.movie.year} ◉ {this.movie.movieLength == null ? '?' : this.movie.movieLength} min</p> 
-                </div> 
-            </div>
-        )
-    }
+function Movie({ movie }) {
+    return (
+    <div className="movie-item" key={movie.id}>
+      <Link to={`/moviepage/${movie.id}`} className="linkNoDecor">
+        <div className="movieImg">
+          <img src={movie.poster?.url == null ? png : movie.poster.url} className="poster" />
+        </div>
+        <div>
+          <p className="movieTitle"> {movie.name == null ? movie.alternativeName : movie.name} </p>
+          <p className="yearAndLength"> {movie.year == null ? '' : movie.year} ◉ {movie.movieLength == null ? '?' : movie.movieLength} min </p>
+        </div>
+      </Link>
+    </div>
+  );
 }
+
 export default Movie;

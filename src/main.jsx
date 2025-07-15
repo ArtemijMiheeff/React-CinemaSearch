@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
     <Header title="CinemaSearch"/>
     <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/moviepage' element={<MoviePage />} />
+        <Route path='/moviepage/:id' element={<MoviePage />} />
     </Routes>
   </Router>,
 )

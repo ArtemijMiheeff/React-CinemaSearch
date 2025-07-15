@@ -19,7 +19,7 @@ function Header(props) {
     <header className="header">
       <Image image={png} />
       <p onClick={goMain}>{props.title}</p>
-      <button onClick={openMoviePage}>Movie page</button>
+      {/* <button onClick={openMoviePage}>Movie page</button> */}
     </header>
   );
 }
