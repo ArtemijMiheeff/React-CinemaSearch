@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import './moviePage.css'
 import poster from '../assets/noposter.png'
 import back from '../assets/back.png'
-import axios from "axios";
+import { api } from "../api";
 
 function MoviePage() {
 
@@ -12,18 +12,10 @@ function MoviePage() {
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
-    const baseUrl = 'https://api.kinopoisk.dev/';
-    const endpoint = `v1.4/movie/${id}`; // Используем movieId в endpoint      
-    const apiKey = '5ZCCR76-7W64YJD-N52N4RM-EPE3V0B';
 
-    const urlWithKey = baseUrl + endpoint;
-    console.log(urlWithKey);
-    axios.get(urlWithKey, {
-      headers: {
-        'X-API-KEY': apiKey,
-        'content-type': 'application/json'
-      }
-    })
+    const endpoint = `v1.4/movie/${id}`; // Используем movieId в endpoint      
+  
+    api.get(endpoint)
     .then(response => {
         console.log(response.data);
         // console.log(response.data.backdrop.url);

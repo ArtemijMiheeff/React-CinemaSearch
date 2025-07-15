@@ -1,26 +1,27 @@
 import React from "react";
 import './movies.css'
 import Movie from './movie.jsx';
-import axios from 'axios';
+import { api } from "../api.js";
+
 
 class Movies extends React.Component
 {
     constructor(props)
     {
         super(props)
-        var movies=[];
-        const baseUrl = 'https://api.kinopoisk.dev/';
+        
+        // const baseUrl = 'https://api.kinopoisk.dev/';
         const endpoint = 'v1.4/movie?page=1&limit=102&selectFields=id&selectFields=name&selectFields=alternativeName&selectFields=description&selectFields=slogan&selectFields=year&selectFields=rating&selectFields=movieLength&selectFields=genres&selectFields=countries&selectFields=poster&selectFields=backdrop&selectFields=logo';
         // const apiKey = 'K2RKCRW-XSD4Q1A-PCH0J54-W8G1CJM';
-        const apiKey = '5ZCCR76-7W64YJD-N52N4RM-EPE3V0B';
+        // const apiKey = '5ZCCR76-7W64YJD-N52N4RM-EPE3V0B';
 
-        const urlWithKey = baseUrl + endpoint;
+        // const urlWithKey = baseUrl + endpoint;
         this.state = {
             movies: [] 
         }
         try{
 
-            axios.get(urlWithKey, {headers: {'X-API-KEY': apiKey, 'content-type': 'application/json'}})
+            api.get(endpoint)
             .then((response) => this.setState({movies: response.data.docs}));
             //this.setState({movies: response.data.docs})); 
             //console.log(response.data.docs)));
