@@ -16,7 +16,7 @@ function App() {
 
   const dispatch = useDispatch();
   const movies = useSelector(state => state.movies);
-  console.log("Filmyi: ", movies);
+  // console.log("Filmyi: ", movies);
 
   const setMovies = (movieData) => {
     dispatch(movieActions.setMovies(movieData))
@@ -49,7 +49,7 @@ function App() {
         paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
       })
         .then((response) => setMovies(response.data.docs));
-          console.log("Filmyi posle: ", movies);
+          // console.log("Filmyi posle: ", movies);
 
     } catch (error) {
       console.log('error', error);

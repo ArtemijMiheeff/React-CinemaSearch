@@ -8,18 +8,6 @@ import persistStore from 'redux-persist/es/persistStore';
 import { PersistGate } from "redux-persist/integration/react";
 import { store } from './store/store.js';
 
-
-
-
-
-
-
-
-
-
-
-
-
 let persistor = persistStore(store);
 
 createRoot(document.getElementById('root')).render(
