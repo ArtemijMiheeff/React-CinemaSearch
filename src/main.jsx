@@ -8,6 +8,7 @@ import App from './App.jsx';
 // import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { persistReducer} from "redux-persist";
+import { PersistGate } from 'redux-persist/integration/react';
 import persistStore from 'redux-persist/es/persistStore';
 
 // action = {type: "", payload: "?"}
@@ -17,7 +18,7 @@ const defaultMovies = {
 const reducer = (state = defaultMovies, action) => {
   switch(action.type)
   {
-    case "getMovies":
+    case "setMovies":
       if (state.movies.length == 0) {
         console.log('Делаю запрос');
         return { ...state, movies: action.payload };
