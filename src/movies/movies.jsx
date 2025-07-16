@@ -41,7 +41,7 @@ class Movies extends React.Component
                         "countries",
                         "poster",
                         "backdrop",
-                    "logo",
+                        "logo",
                 ],
                 },
                 paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
