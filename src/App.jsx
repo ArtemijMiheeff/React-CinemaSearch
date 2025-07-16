@@ -1,5 +1,4 @@
 // import { useState } from 'react';
-import './App.css';
 import HomePage from './homePage/homePage.jsx';
 import MoviePage from './movies/moviePage.jsx';
 import Header  from './header/header.jsx'
@@ -9,7 +8,9 @@ import { useEffect} from 'react';
 import {api} from './api.js'
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
-import { movieActions } from './main.jsx';
+
+import './App.css';
+import { movieActions } from './store/moviesSlice.js';
 
 function App() {
 
