@@ -5,47 +5,54 @@ import MoviePage from './movies/moviePage.jsx';
 import Header  from './header/header.jsx'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {setState, useEffect} from 'react';
 import {api} from './api.js'
+import { useDispatch, useSelector } from 'react-redux';
+import qs from 'qs';
 
 function App() {
-  // const [count, setCount] = useState(0)
-  //const [movies, setMovies] = useState([]);
-  //const movies = [];
 
-  // const endpoint = 'v1.4/movie';
+  const dispatch = useDispatch();
+  const movies = useSelector(state => state.movies);
+  console.log("Filmyi: ", movies);
 
-  // try{
-  //   api.get(endpoint, {
-  //       params: {
-  //           "limit":102,
-  //       "page": 1,
-  //       "notNullFields": ["backdrop.url"],
-  //       "selectFields": [
-  //               "id",
-  //               "name",
-  //               "alternativeName",
-  //               "description",
-  //               "slogan",
-  //               "year",
-  //               "rating",
-  //               "movieLength",
-  //               "genres",
-  //               "countries",
-  //               "poster",
-  //               "backdrop",
-  //               "logo",
-  //       ],
-  //       },
-  //       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
-  //     })
-  //     .then((response) => this.setState({movies: response.data.docs}));
-  //     //this.setState({movies: response.data.docs})); 
-  //     //console.log(response.data.docs)));
-  // }
-  // catch (error)
-  // {
-  //     console.log('error', error);
-  // }
+  const getMovies = (movieData) => {
+    dispatch({type:"getMovies", payload: movieData})
+  }
+  useEffect(() => {
+    const endpoint = 'v1.4/movie';
+
+    try {
+      api.get(endpoint, {
+        params: {
+          limit: 102,
+          page: 1,
+          notNullFields: ['backdrop.url'],
+          selectFields: [
+            'id',
+            'name',
+            'alternativeName',
+            'description',
+            'slogan',
+            'year',
+            'rating',
+            'movieLength',
+            'genres',
+            'countries',
+            'poster',
+            'backdrop',
+            'logo',
+          ],
+        },
+        paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
+      })
+        .then((response) => getMovies(response.data.docs));
+          console.log("Filmyi posle: ", movies);
+
+    } catch (error) {
+      console.log('error', error);
+    }
+  }, []);
 
   return (
       <Router>
