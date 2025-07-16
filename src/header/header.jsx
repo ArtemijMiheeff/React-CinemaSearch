@@ -8,9 +8,9 @@ import App from '../App.jsx'
 function Header(props) {
   const navigate = useNavigate();
 
-  const openMoviePage = () => {
-    navigate('/moviepage');
-  };
+  // const openMoviePage = () => {
+  //   navigate('/moviepage');
+  // };
   const goMain = () => {
     navigate('/');
   };

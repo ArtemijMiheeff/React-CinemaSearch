@@ -23,7 +23,7 @@ function MoviePage() {
     .catch(error => {
       console.error("Ошибка при получении данных:", error);
     });
-  }, [id]);
+  }, []);
 
   return (
     <div>

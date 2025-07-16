@@ -5,10 +5,11 @@ import MoviePage from './movies/moviePage.jsx';
 import Header  from './header/header.jsx'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {setState, useEffect} from 'react';
+import { useEffect} from 'react';
 import {api} from './api.js'
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
+import { movieActions } from './main.jsx';
 
 function App() {
 
@@ -16,8 +17,8 @@ function App() {
   const movies = useSelector(state => state.movies);
   console.log("Filmyi: ", movies);
 
-  const getMovies = (movieData) => {
-    dispatch({type:"getMovies", payload: movieData})
+  const setMovies = (movieData) => {
+    dispatch(movieActions.setMovies(movieData))
   }
   useEffect(() => {
     const endpoint = 'v1.4/movie';
@@ -46,7 +47,7 @@ function App() {
         },
         paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' }),
       })
-        .then((response) => getMovies(response.data.docs));
+        .then((response) => setMovies(response.data.docs));
           console.log("Filmyi posle: ", movies);
 
     } catch (error) {
