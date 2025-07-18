@@ -29,10 +29,10 @@ function Header(props) {
   }
   function goRandomMovie (){
     // console.log('Тип листа ',typeof movieList);
-    console.log('Лист муви: ', movieList);
+    // console.log('Лист муви: ', movieList);
     const randMovie = movieList[getRandomInt(0, movieList.length)]
     const randMovieID = randMovie.id;
-    console.log(randMovieID);
+    // console.log(randMovieID);
     // console.log(movieList);
     navigate(`/moviepage/${randMovieID}`);
   }

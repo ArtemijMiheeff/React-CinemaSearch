@@ -10,13 +10,13 @@ const favMovieSlice = createSlice({
     reducers: {
         setFavMovie: (state, action) => {
             console.log('Добавлено в избранное');
-            console.log('тип штуки:', typeof action.payload);
+            // console.log('тип штуки:', typeof action.payload);
             const movieToAdd = action.payload;
             state.favMovie.some(favMovieItem => favMovieItem.id === movieToAdd.id) ? console.log('nonono') : state.favMovie = [...state.favMovie, action.payload];
         },
         
         removeFavMovie: (state, action) => {
-            console.log('Удалено из избранного');
+            // console.log('Удалено из избранного');
             const movieToRemove = action.payload;
             state.favMovie = state.favMovie.filter(movie => movie.id !== movieToRemove.id);
         }

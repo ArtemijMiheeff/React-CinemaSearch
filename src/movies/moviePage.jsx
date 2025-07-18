@@ -14,14 +14,27 @@ import { favMovieActions } from '../store/favMovieSlice.js'
 
 function MoviePage() {
     const dispatch = useDispatch();
+    const [isClicked, setIsClicked] = useState(false);
     const setDelFvrt = (movieData) =>{
+      setIsClicked(true); // Кнопка нажата
+      setTimeout(() => {
+        setIsClicked(false); // Возвращаем состояние через некоторое время
+      }, 150);
       favMovie.some(favItem => favItem.id === movieData.id) ? dispatch(favMovieActions.removeFavMovie(movieData)) : dispatch(favMovieActions.setFavMovie(movieData));
-      }
+      
+    }
+    const buttonStyle = {
+      backgroundColor: isClicked ? 'rgba(25, 60, 184, 1)' : 'rgba(190, 219, 255, 1)', // Меняем цвет фона
+      color: isClicked ? 'aliceblue':'black',
+      // padding: '10px 20px',
+      border: 'none',
+      cursor: 'pointer',
+      transition: 'background-color 0.25s ease', // Плавный переход
+    };
     const favMovie = useSelector(state => state.favMovieList.favMovie);
-
     const isInFav = (movieData) =>
     {
-      console.log(favMovie.includes(movieData));
+      // console.log(favMovie.includes(movieData));
       if (favMovie.some(favItem => favItem.id === movieData.id))
         {
           return 'Удалить из избранного';
@@ -34,19 +47,20 @@ function MoviePage() {
     const {id} = useParams();
     // console.log(id);
     const [movie, setMovie] = useState(null);
-
+    
     useEffect(() => {
-    const endpoint = `v1.4/movie/${id}`;  
-
-    api.get(endpoint)
-    .then(response => {
+      const endpoint = `v1.4/movie/${id}`;  
+      
+      api.get(endpoint)
+      .then(response => {
         // console.log(response.data);
         // console.log(response.data.backdrop.url);
         setMovie(response.data);})
-    .catch(error => {
-      console.error("Ошибка при получении данных:", error);
-    });
-  }, [id]);
+        .catch(error => {
+          console.error("Ошибка при получении данных:", error);
+        });
+      }, [id]);
+      // console.log(movie);
 
   return (
     <div>
@@ -67,7 +81,7 @@ function MoviePage() {
                 <button className="button1">Button 1</button>
                 <button className="button1">Button 2</button>
                 <button className="button2">Button 3</button>
-                <button className="buttonFvrt" onClick={() => setDelFvrt(movie)}>{isInFav(movie)}</button>
+                <button className="buttonFvrt" onClick={() => setDelFvrt(movie)} style={buttonStyle}>{isInFav(movie)}</button>
                 {/* <button className="buttonFvrt">{isInFav(movie)}</button> */}
             </div>
             </div>
