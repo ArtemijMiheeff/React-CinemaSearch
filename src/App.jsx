@@ -11,6 +11,7 @@ import {api} from './api.js'
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 import { movieActions } from './store/moviesSlice.js';
+import RandomMovie from './movies/randomMovie/randomMovie.jsx';
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
         <Route path='/moviepage/:id' element={<MoviePage />} />
         <Route path='/searchResult' element={<SearchResult />} />
         <Route path='/favMovie' element={<FavMovie />} />
+        <Route path='/randomMovie' element={<RandomMovie />} />
     </Routes>
   </Router>
   )
