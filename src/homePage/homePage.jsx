@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 function HomePage()
 {
-    const moviesBackdrops = useSelector(state => state.movies);
+    const moviesBackdrops = useSelector(state => state.movieList.movies);
     const maxBackdrops = 10;
     const limitedDackdrops = moviesBackdrops.slice(0, maxBackdrops);
     // const movies = [image1, image2, image3, image4, image5];

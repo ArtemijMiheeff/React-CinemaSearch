@@ -1,17 +1,26 @@
-import { applyMiddleware, configureStore } from "@reduxjs/toolkit";
+import { applyMiddleware, combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { thunk } from 'redux-thunk'
 import { persistReducer } from "redux-persist";
 import { movieReducer } from "./moviesSlice";
+import { nameSearchReducer } from "./nameSearchSlice";
+import {favMovieReducer} from "./favMovieSlice";
 
+const mainReducers = combineReducers(
+    {
+        movieList:movieReducer,
+        searchList: nameSearchReducer,
+        favMovieList: favMovieReducer,
+    }
+)
 
 const persistConfig = {
     key: "kino",
-    version: 1,
+    version: 2,
     storage,
     debug: true,
 };
-const persistedReducer = persistReducer(persistConfig, movieReducer);
+const persistedReducer = persistReducer(persistConfig, mainReducers);
 
 
 

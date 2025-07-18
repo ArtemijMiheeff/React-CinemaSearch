@@ -37,8 +37,9 @@
 }
 .poster{
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    max-height: 19rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .movieTitle
 {
@@ -70,4 +71,16 @@
 .movieLoading h3
 {
    margin-left: 3rem;
+}
+.delButton{
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(3, 12, 50);
+    color: aliceblue;
+    border-radius: 19px;
+    border: 1px solid aliceblue;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }

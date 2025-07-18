@@ -1,13 +1,15 @@
 import React from "react";
 import qs from 'qs';
 import Movie from './movie.jsx';
+
 import { api } from "../api.js";
-import './movies.css'
 import { useSelector } from "react-redux";
+
+import './movies.css'
 
 function Movies ()
 {
-    const movies = useSelector((state) => state.movies);
+    const movies = useSelector((state) => state.movieList.movies);
 
     if (movies.length>0)
     {

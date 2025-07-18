@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .header
 {
     display: flex;
@@ -9,9 +11,42 @@
     margin-bottom: 50px;
     color: aliceblue;
     /* padding-left: 1cm; */
+    /* border: 1px solid red; */
 }
 
 .header p:hover
 {
     color: rgb(88, 176, 138);
+}
+.searchField{
+    /* position: absolute;
+    right: 15%; */
+    margin-left: 5rem;
+    background-color: transparent;
+    border-radius: 19px;
+    height: 2rem;
+    width: 16rem;
+    color: aliceblue;
+}
+input{
+    font-family: 'Montserrat', 'sans-serif';
+}
+.buttonSearch{
+    border-radius: 10px;
+    /* border: 1px solid red; */
+    background-color: transparent;
+    height: 2rem;
+    width: auto;
+}
+.buttonFavMovie{
+    position: absolute;
+    right: 5%;
+    border-radius: 19px;
+    /* border: 1px solid red; */
+    color: aliceblue;
+    background-color: transparent;
+    height: 2.5rem;
+    width: auto;
+    /* margin-left: 5rem; */
+
 }

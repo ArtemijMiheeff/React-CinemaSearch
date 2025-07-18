@@ -12,6 +12,7 @@ function ImageCrousel({images})
     speed: 400,          // Скорость анимации
     slidesToShow: 1,      // Количество слайдов для показа
     slidesToScroll: 1,      // Количество слайдов для прокрутки
+    initialSlide: 2,
     autoplay: true,       // Автоматическая прокрутка
     autoplaySpeed: 3000,  // Интервал между слайдами (мс)
     pauseOnHover: true,    // Пауза при наведении мыши

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { favMovieActions } from "../store/favMovieSlice";
 
-function Movie({ movie }) {
-    const dispatch = useDispatch();
+function MovieFavCard({ movie }) {
+  const dispatch = useDispatch();
     return (
     <div className="movie-item" key={movie.id}>
       <Link to={`/moviepage/${movie.id}`} className="linkNoDecor">
@@ -18,9 +18,9 @@ function Movie({ movie }) {
           <p className="yearAndLength"> {movie.year == null ? '' : movie.year} ◉ {movie.movieLength == null ? '?' : movie.movieLength} min </p>
         </div>
       </Link>
-      <button className="delButton" onClick={() => {dispatch(favMovieActions.setFavMovie(movie))}}>Добавить в избранное</button>
+      <button className="delButton" onClick={() => {dispatch(favMovieActions.removeFavMovie(movie))}}>Удалить из избранного</button>
     </div>
   );
 }
 
-export default Movie;
+export default MovieFavCard;
