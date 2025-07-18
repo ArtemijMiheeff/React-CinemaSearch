@@ -1,6 +1,6 @@
 import React from "react";
 import Movie from "../movie";
-
+import sadRain from '../../assets/sadRain.gif'
 import { useSelector } from "react-redux";
 
 import './searchResult.css'
@@ -27,8 +27,11 @@ function SearchResult()
     else
     {
         return(
-            <div className="movieLoading">
-            <h3>Ничего не найдено по запросу '{nameSearch}'</h3>
+            <div className="nothing">
+                <h3>Ничего не найдено по запросу '{nameSearch}'</h3>
+                <div className="sadGif">
+                    <img src={sadRain} />
+                </div>
             </div>
         )
     }

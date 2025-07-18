@@ -8,13 +8,13 @@ import './favMovie.css'
 
 function FavMovie(){
     const favMovie = useSelector(state => state.favMovieList.favMovie);
-    console.log('Ы',favMovie);
-    console.log('Ы1',typeof favMovie);
-    console.log('ИсМассив?',Array.isArray(favMovie));
-    console.log(favMovie.length);
+    // console.log('Ы',favMovie);
+    // console.log('Ы1',typeof favMovie);
+    // console.log('ИсМассив?',Array.isArray(favMovie));
+    // console.log(favMovie.length);
     if (favMovie.length>0)
     {
-        console.log('длина > 0');
+        // console.log('длина > 0');
         return(
             <div className="movie-list">
                 {favMovie.map((elem) => (
@@ -26,7 +26,7 @@ function FavMovie(){
     }
     else
     {
-        console.log('длина !> 0');
+        // console.log('длина !> 0');
         return(
             <div className="emptyPage">
             {/* <h3>Ничего не добавлено в избранное</h3> */}
