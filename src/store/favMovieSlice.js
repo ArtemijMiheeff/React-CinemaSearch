@@ -11,7 +11,8 @@ const favMovieSlice = createSlice({
         setFavMovie: (state, action) => {
             console.log('Добавлено в избранное');
             console.log('тип штуки:', typeof action.payload);
-            state.favMovie = [...state.favMovie, action.payload];
+            const movieToAdd = action.payload;
+            state.favMovie.some(favMovieItem => favMovieItem.id === movieToAdd.id) ? console.log('nonono') : state.favMovie = [...state.favMovie, action.payload];
         },
         
         removeFavMovie: (state, action) => {

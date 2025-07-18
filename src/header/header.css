@@ -18,6 +18,11 @@
 {
     color: rgb(88, 176, 138);
 }
+.searchBlock
+{
+    position: absolute;
+    right: 11%;
+}
 .searchField{
     /* position: absolute;
     right: 15%; */
@@ -25,7 +30,7 @@
     background-color: transparent;
     border-radius: 19px;
     height: 2rem;
-    width: 16rem;
+    max-width: 100%;
     color: aliceblue;
 }
 input{

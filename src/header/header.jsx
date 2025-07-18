@@ -33,8 +33,10 @@ function Header(props) {
     <header className="header">
       <Image image={png} />
       <p onClick={goMain}>{props.title}</p>
-      <input className='searchField' value={nameSearch} onChange={setNameSrch} placeholder= ' Наименование фильма'></input>
-      <button className='buttonSearch' onClick={goSearchResult}>🔎</button>
+      <div className='searchBlock'>
+        <input className='searchField' value={nameSearch} onChange={setNameSrch} placeholder= 'Наименование фильма'></input>
+        <button className='buttonSearch' onClick={goSearchResult}>🔎</button>
+      </div>
       <button className='buttonFavMovie' onClick={goFavMovie}>Избранное</button>
       {/* <FavMovie /> */}
     </header>

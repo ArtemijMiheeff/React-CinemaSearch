@@ -28,7 +28,7 @@ function SearchResult()
     {
         return(
             <div className="movieLoading">
-            <h3>Ничего не найдено</h3>
+            <h3>Ничего не найдено по запросу '{nameSearch}'</h3>
             </div>
         )
     }
